@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Laravel</title>
 
@@ -17,6 +18,22 @@
 
 <body class="antialiased">
     @yield('content')
+
+    <footer class="container mx-auto py-8">
+        <div class="flex justify-center items-center">
+            <img src={{ asset('icons/tide.svg') }} alt="Andre Varandas Logo" class="w-12 h-12 rounded-full" />
+            <p class="ml-4 text-gray-600">Made with &#9829;
+                by <a href="https://github.com/andrevarandas" target="_blank" rel="noopener noreferrer"
+                    class="font-semibold">Andre Varandas</a>
+                & <a href="
+                        https://github.com/andrebravoferreira" target="_blank"
+                    rel="noopener noreferrer" class="font-semibold">André Bravo</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    @vite('resources/js/app.js')
 </body>
 
 </html>

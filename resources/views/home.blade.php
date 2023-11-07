@@ -1,30 +1,43 @@
 @extends('layout')
 
 @section('content')
+    <main class="container mx-auto py-8 space-y-12 flex flex-col justify-center h-full">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800">🌊 Tides @ Portugal</h1>
+            <select class="mt-4 border border-gray-300 rounded-md shadow-sm p-2" id="portDropdown">
+                @foreach ($portNames as $port)
+                    <option value="{{ $port }}" @if ($port === $requestedPort) selected @endif>
+                        {{ $port }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
 
-    @if (isset($error))
-        <p>Error: {{ $error }}</p>
-    @else
-        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            @foreach ($closestPortData as $port)
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <div class="flex justify-between items-center mb-4">
-                        <h3 class="text-2xl font-bold">{{ $port['port'] }}</h3>
-                        <img src="{{ asset('icons/tide.svg') }}" alt="Tide Icon" class="h-8 w-8 sm:h-10 sm:w-10">
-                    </div>
-                    <div class="flex items-center justify-between mb-4">
-                        <p class="text-gray-700 text-base sm:text-lg">
-                            {{ $port['desc_en'] }} - {{ $port['height'] }}
-                        </p>
-                        <p class="text-gray-700 text-base sm:text-lg">
-                            {{ $port['hour'] }}
-                        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-6">
+            @foreach ($preferedPort as $port)
+                <div
+                    class="border rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 cursor-pointer">
+                    <h3 class="text-lg font-bold text-gray-800">{{ $port['port'] }}</h3>
+                    <div class="flex justify-between items-center mt-2 text-sm text-gray-600">
+                        <p>{{ $port['desc_en'] }} - {{ $port['height'] }}</p>
+                        <p class="font-semibold">{{ $port['hour'] }}</p>
                     </div>
                 </div>
             @endforeach
         </div>
-    @endif
+    </main>
 
+    <script>
+        // Function to handle dropdown change and redirect
+        const handlePortChange = (event) => {
+            const selectedPort = event.target.value;
+            window.location.href = `?port=${selectedPort}`;
+        };
 
-    @vite('resources/js/app.js')
+        // Event listener for dropdown change
+        const portDropdown = document.getElementById('portDropdown');
+        if (portDropdown) {
+            portDropdown.addEventListener('change', handlePortChange);
+        }
+    </script>
 @endsection

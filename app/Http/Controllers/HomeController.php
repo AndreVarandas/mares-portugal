@@ -8,46 +8,73 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    /**
+     * @var PortService
+     */
     private $portService;
 
+    /**
+     * HomeController constructor.
+     *
+     * @param PortService $portService
+     */
     public function __construct(PortService $portService)
     {
         $this->portService = $portService;
     }
 
+    /**
+     * Display the home page with closest port data.
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\View
+     */
     public function index(Request $request)
     {
-        // Get user's latitude and longitude from session
         $userLatitude = $request->session()->get('userLatitude');
         $userLongitude = $request->session()->get('userLongitude');
+        $requestedPort = $request->query('port');
 
-        // Fetch all port data from the service
-        $portData = $this->portService->getPortData();
+        $ports = $this->portService->getPortData();
 
-        // Calculate the closest port based on user's location
-        $closestPort = $this->findClosestPort($portData, $userLatitude, $userLongitude);
+        if ($requestedPort) {
+            $preferedPort = $this->fetchPortData($ports, $requestedPort);
+        } else {
+            $this->setDefaultUserLocation($request, $userLatitude, $userLongitude);
 
-        // Filter port data to get all entries for the closest port
-        $closestPortData = $this->filterClosestPortData($portData, $closestPort['port']);
+            $closestPort = $this->findClosestPort($ports, $userLatitude, $userLongitude);
+            $preferedPort = $this->fetchPortData($ports, $closestPort['port']);
+        }
 
-        // Set storage the name of the port for the user
-        $request->session()->put('closestPortName', $closestPort['port']);
+        $portNames = Port::pluck('name')->toArray();
 
-        return view('home', compact('closestPortData'));
+        return view('home', compact('preferedPort', 'portNames', 'requestedPort'));
     }
 
+    /**
+     * Set the user's location in session storage.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function setUserLocation(Request $request)
     {
         $userLatitude = $request->input('userLatitude');
         $userLongitude = $request->input('userLongitude');
 
-        // Store in session for user-specific data
-        $request->session()->put('userLatitude', $userLatitude);
-        $request->session()->put('userLongitude', $userLongitude);
+        $this->storeUserLocationInSession($request, $userLatitude, $userLongitude);
 
         return response()->json(['success' => true]);
     }
 
+    /**
+     * Find the closest port to the user's location.
+     *
+     * @param array $ports
+     * @param float $userLatitude
+     * @param float $userLongitude
+     * @return array|null
+     */
     private function findClosestPort($ports, $userLatitude, $userLongitude)
     {
         $earthRadius = 6371; // Earth's radius in kilometers
@@ -80,10 +107,47 @@ class HomeController extends Controller
         return $closestPort;
     }
 
-    private function filterClosestPortData($portData, $closestPortName)
+    /**
+     * Fetch port data based on the selected port name.
+     *
+     * @param array $portData
+     * @param string $selectedPortName
+     * @return array
+     */
+    private function fetchPortData($portData, $selectedPortName)
     {
-        return array_filter($portData, function ($port) use ($closestPortName) {
-            return $port['port'] === $closestPortName;
+        return array_filter($portData, function ($port) use ($selectedPortName) {
+            return $port['port'] === $selectedPortName;
         });
+    }
+
+    /**
+     * Set the default user location in session if not already set.
+     *
+     * @param Request $request
+     * @param float $userLatitude
+     * @param float $userLongitude
+     */
+    private function setDefaultUserLocation($request, $userLatitude, $userLongitude)
+    {
+        if (!$userLatitude || !$userLongitude) {
+            $userLatitude = config('app.default_latitude');
+            $userLongitude = config('app.default_longitude');
+
+            $this->storeUserLocationInSession($request, $userLatitude, $userLongitude);
+        }
+    }
+
+    /**
+     * Store the user's location latitude and longitude in session.
+     *
+     * @param Request $request
+     * @param float $userLatitude
+     * @param float $userLongitude
+     */
+    private function storeUserLocationInSession($request, $userLatitude, $userLongitude)
+    {
+        $request->session()->put('userLatitude', $userLatitude);
+        $request->session()->put('userLongitude', $userLongitude);
     }
 }
