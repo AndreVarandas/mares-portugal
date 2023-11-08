@@ -27,7 +27,7 @@
                     class="font-semibold">Andre Varandas</a>
                 & <a href="
                         https://github.com/andrebravoferreira" target="_blank"
-                    rel="noopener noreferrer" class="font-semibold">André Bravo</a>
+                    rel="noopener noreferrer" class="font-semibold">André Bravo Ferreira</a>
             </p>
         </div>
     </footer>

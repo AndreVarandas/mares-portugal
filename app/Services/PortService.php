@@ -20,9 +20,9 @@ class PortService
         try {
             $response = $this->client->request('GET', $this->baseUrl);
             $data = json_decode($response->getBody()->getContents(), true);
+
             return $data['data'];
         } catch (\Throwable $th) {
-            // You might want to throw an exception here or log the error instead of returning directly
             return [];
         }
     }
@@ -32,9 +32,9 @@ class PortService
         try {
             $response = $this->client->request('GET', $this->baseUrl . $date);
             $data = json_decode($response->getBody()->getContents(), true);
+
             return $data['data'];
         } catch (\Throwable $th) {
-            // You might want to throw an exception here or log the error instead of returning directly
             return [];
         }
     }
