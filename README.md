@@ -1,5 +1,7 @@
 # Mares de Portugal
 
+[![Laravel Forge Site Deployment Status](https://img.shields.io/endpoint?url=https%3A%2F%2Fforge.laravel.com%2Fsite-badges%2F309df289-c70c-44a5-9b59-00b43b2a601a%3Fdate%3D1&style=flat)](https://forge.laravel.com/servers/449430/sites/2156237)
+
 Just a simple website to show the tides of Portugal.
 
 ## Getting Started
