@@ -13,7 +13,18 @@
                 @endforeach
             </select>
         </div>
-        <div class="overflow-x-auto rounded-lg border dark:bg-gray-800 dark:border-gray-500">
+
+        @if ($currentTide)
+            <div class="text-center bg-blue-300 md:rounded-lg p-6 shadow-md">
+                <img src={{ asset('icons/tide.svg') }} alt="tide" class="w-24 h-24 mx-auto" />
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">
+                    {{ $currentTide['desc_en'] }}</h2>
+                <p class="text-lg font-semibold text-gray-600">{{ $currentTide['hour'] }}</p>
+                <p class="text-base text-gray-700">{{ $currentTide['height'] }} Meters</p>
+            </div>
+        @endif
+
+        <div class="overflow-x-auto md:rounded-lg border dark:bg-gray-800 dark:border-gray-500">
             <table class="min-w-full divide-y divide-gray-200 dark:text-white dark:divide-gray-500">
                 <thead class="bg-gray-50 dark:bg-gray-700">
                     <tr>

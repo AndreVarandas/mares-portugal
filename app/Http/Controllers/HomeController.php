@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Port;
 use App\Services\PortService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -48,7 +49,34 @@ class HomeController extends Controller
 
         $portNames = Port::pluck('name')->toArray();
 
-        return view('home', compact('selectedPort', 'portNames'));
+        $currentTide = $this->estimateCurrentTide($selectedPort);
+
+        return view('home', compact('selectedPort', 'portNames', 'currentTide'));
+    }
+
+    /**
+     * Estimate the current tide based on the closest time to the current time.
+     *
+     * @param array $ports
+     * @return array|null
+     */
+    private function estimateCurrentTide($ports)
+    {
+        $currentTime = Carbon::now();
+        $currentTide = null;
+        $closestTimeDiff = PHP_INT_MAX;
+
+        foreach ($ports as $tide) {
+            $tideTime = Carbon::createFromFormat('d-m-Y H\hi', $tide['day'] . ' ' . $tide['hour']);
+            $timeDiff = $tideTime->diffInMinutes($currentTime, false);
+
+            if ($timeDiff >= 0 && $timeDiff < $closestTimeDiff) {
+                $closestTimeDiff = $timeDiff;
+                $currentTide = $tide;
+            }
+        }
+
+        return $currentTide;
     }
 
     /**
