@@ -6,24 +6,37 @@
             <h1 class="text-4xl font-bold text-gray-800">🌊 Tides @ Portugal</h1>
             <select class="mt-4 border border-gray-300 rounded-md shadow-sm p-2" id="portDropdown">
                 @foreach ($portNames as $port)
-                    <option value="{{ $port }}" @if ($port === $requestedPort) selected @endif>
+                    <option value="{{ $port }}" @if ($port === $preferedPort[0]['port']) selected @endif>
                         {{ $port }}
                     </option>
                 @endforeach
             </select>
         </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-6">
-            @foreach ($preferedPort as $port)
-                <div
-                    class="border rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 cursor-pointer">
-                    <h3 class="text-lg font-bold text-gray-800">{{ $port['port'] }}</h3>
-                    <div class="flex justify-between items-center mt-2 text-sm text-gray-600">
-                        <p>{{ $port['desc_en'] }} - {{ $port['height'] }}</p>
-                        <p class="font-semibold">{{ $port['hour'] }}</p>
-                    </div>
-                </div>
-            @endforeach
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200 shadow-md rounded-lg">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Port
+                        </th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Description & Height</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Hour
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    @foreach ($preferedPort as $port)
+                        <tr class="hover:bg-gray-100">
+                            <td class="px-6 py-4 whitespace-nowrap font-bold">
+                                {{ $port['port'] }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="font-semibold">{{ $port['desc_en'] }}</span> {{ $port['height'] }} Meters
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap font-semibold">{{ $port['hour'] }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </main>
 

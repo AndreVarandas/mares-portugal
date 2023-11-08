@@ -48,7 +48,7 @@ class HomeController extends Controller
 
         $portNames = Port::pluck('name')->toArray();
 
-        return view('home', compact('preferedPort', 'portNames', 'requestedPort'));
+        return view('home', compact('preferedPort', 'portNames'));
     }
 
     /**
@@ -116,9 +116,11 @@ class HomeController extends Controller
      */
     private function fetchPortData($portData, $selectedPortName)
     {
-        return array_filter($portData, function ($port) use ($selectedPortName) {
+        $filteredPorts = array_filter($portData, function ($port) use ($selectedPortName) {
             return $port['port'] === $selectedPortName;
         });
+
+        return array_values($filteredPorts); // Re-index the array
     }
 
     /**
