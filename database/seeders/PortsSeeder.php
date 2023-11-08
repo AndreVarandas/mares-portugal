@@ -14,7 +14,7 @@ class PortsSeeder extends Seeder
     public function run(): void
     {
         Port::create([
-            'name' => 'Angra do Heroismo',
+            'name' => 'Angra do Heroísmo',
             'latitude' => 38.65,
             'longitude' => -27.216667,
         ]);
