@@ -6,3 +6,7 @@ html,
 body {
     @apply flex flex-col h-full;
 }
+
+.dark {
+    background-color: #1a202c;
+}

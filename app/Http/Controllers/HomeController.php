@@ -38,17 +38,17 @@ class HomeController extends Controller
         $ports = $this->portService->getPortData();
 
         if ($requestedPort) {
-            $preferedPort = $this->fetchPortData($ports, $requestedPort);
+            $selectedPort = $this->fetchPortData($ports, $requestedPort);
         } else {
             $this->setDefaultUserLocation($request, $userLatitude, $userLongitude);
 
             $closestPort = $this->findClosestPort($ports, $userLatitude, $userLongitude);
-            $preferedPort = $this->fetchPortData($ports, $closestPort['port']);
+            $selectedPort = $this->fetchPortData($ports, $closestPort['port']);
         }
 
         $portNames = Port::pluck('name')->toArray();
 
-        return view('home', compact('preferedPort', 'portNames'));
+        return view('home', compact('selectedPort', 'portNames'));
     }
 
     /**
