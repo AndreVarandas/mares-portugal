@@ -18,13 +18,13 @@
                 <thead class="bg-gray-50 dark:bg-gray-700">
                     <tr>
                         <th
-                            class="px-4 sm:px-6 py-3 text-left text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                            class="px-4 sm:px-2 py-3 text-left text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                             Port</th>
                         <th
-                            class="px-4 sm:px-6 py-3 text-left text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                            class="px-4 sm:px-2 py-3 text-left text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                             Description & Height</th>
                         <th
-                            class="px-4 sm:px-6 py-3 text-left text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                            class="px-4 sm:px-2 py-3 text-left text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                             Hour</th>
                     </tr>
                 </thead>

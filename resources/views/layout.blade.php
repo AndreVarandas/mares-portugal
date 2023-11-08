@@ -28,8 +28,8 @@
     @yield('content')
 
     <!-- Footer -->
-    <footer class="container mx-auto py-8 flex justify-center items-center">
-        <p class="text-gray-600">With &#9829; by
+    <footer class="container mx-auto max-w-4xl px-4 py-8 flex justify-center items-center">
+        <p class="text-gray-600">by
             <a href="https://github.com/andrevarandas" target="_blank" rel="noopener noreferrer"
                 class="font-semibold underline">Andre Varandas</a>
             & <a href="https://github.com/andrebravoferreira" target="_blank" rel="noopener noreferrer"
