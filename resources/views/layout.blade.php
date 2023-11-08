@@ -6,7 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>🌊 Mares de Portugal</title>
+    <title>🌊 Mares de Portugal - Tides, Schedules, and Information</title>
+    <meta name="description"
+        content="Discover tides, schedules, and detailed information about Portugal's coasts and ports.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -18,7 +20,7 @@
 
 <body class="antialiased bg-white dark:bg-gray-900">
     <!-- Dark mode toggle -->
-    <input type="checkbox" id="darkModeToggle" class="hidden" />
+    <input type="checkbox" id="darkModeToggle" class="hidden" aria-checked="false" role="switch">
     <label for="darkModeToggle"
         class="fixed top-4 right-4 bg-gray-300 dark:bg-gray-700 w-12 h-6 rounded-full flex items-center p-1 cursor-pointer">
         <div class="w-5 h-5 bg-gray-600 dark:bg-blue-300 rounded-full" id="darkModeIndicator"></div>
@@ -28,8 +30,8 @@
     @yield('content')
 
     <!-- Footer -->
-    <footer class="container mx-auto max-w-4xl px-4 py-8 flex justify-center items-center">
-        <p class="text-gray-600">by
+    <footer class="container mx-auto max-w-4xl px-4 py-8 flex justify-center items-center text-gray-600">
+        <p>by
             <a href="https://github.com/andrevarandas" target="_blank" rel="noopener noreferrer"
                 class="font-semibold underline">Andre Varandas</a>
             & <a href="https://github.com/andrebravoferreira" target="_blank" rel="noopener noreferrer"
