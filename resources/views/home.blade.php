@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <main class="container mx-auto py-8  flex flex-col justify-center h-full ">
+    <main class="container mx-auto py-8 flex flex-col justify-center h-full ">
         <div class="text-center mb-8">
             <h1 class="text-4xl font-bold text-gray-800 dark:text-white">🌊 Tides @ Portugal</h1>
             <select class="mt-6 border border-gray-300 rounded-md shadow-sm p-2 dark:bg-gray-700 dark:text-white"

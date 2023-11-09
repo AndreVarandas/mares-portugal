@@ -23,7 +23,7 @@
 
 <body class="antialiased bg-white dark:bg-gray-900">
     <!-- Dark mode toggle -->
-    <div class="flex justify-end container mx-auto my-12 md:my-6">
+    <div class="flex justify-end container mx-auto px-6 md:px-0 my-6 md:my-6">
         <input type="checkbox" id="darkModeToggle" class="hidden" aria-checked="false" role="switch">
         <label for="darkModeToggle"
             class="bg-gray-300 dark:bg-gray-700 w-12 h-6 rounded-full flex items-center p-1 cursor-pointer">
