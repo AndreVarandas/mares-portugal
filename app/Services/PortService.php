@@ -45,8 +45,8 @@ class PortService
             foreach ($data['data'] as $tide) {
                 $tideTime = Carbon::createFromFormat('d-m-Y H\hi', $tide['day'] . ' ' . $tide['hour']);
 
-                // Check if the tide time is in the future
-                if ($tideTime->isFuture()) {
+                // Check if the tide time is in the future adding 30 minutes as a threshold.
+                if ($tideTime->addMinutes(30)->isFuture()) {
                     $filteredData[] = $tide;
                 }
             }
