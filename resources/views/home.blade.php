@@ -15,14 +15,11 @@
         </div>
 
         @if ($currentTide)
-            <div
-                class="text-center bg-blue-300 md:rounded-lg md:rounded-b-none p-2 md:p-6 flex items-center justify-around md:flex-col">
+            <div class="bg-blue-300 md:rounded-lg md:rounded-b-none p-4 md:p-6 flex space-x-4 items-center md:flex-col">
                 <img src={{ asset('icons/tide.svg') }} alt="tide" class="w-12 h-12 md:w-24 md:h-24" />
                 <h2 class="text-2xl sm:text-3xl font-bold
                     text-gray-800 md:mb-4">
                     {{ $currentTide['desc_en'] }}</h2>
-                <p class="text-lg font-semibold text-gray-600">{{ $currentTide['hour'] }}</p>
-                <p class="text-base text-gray-700">{{ $currentTide['height'] }} M</p>
             </div>
         @endif
 

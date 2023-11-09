@@ -36,7 +36,7 @@ class HomeController extends Controller
         $userLongitude = $request->session()->get('userLongitude');
         $requestedPort = $request->query('port');
 
-        $ports = $this->portService->getPortData();
+        $ports = $this->portService->getPortDataByDate(now()->format('d-m-Y'));
 
         if ($requestedPort) {
             $selectedPort = $this->fetchPortData($ports, $requestedPort);
