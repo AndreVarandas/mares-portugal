@@ -67,8 +67,7 @@ class HomeController extends Controller
         $timeThresholdLow = -20; // minutes before/after low tide
 
         $currentTime = Carbon::now();
-        $closestHighTide = null;
-        $closestLowTide = null;
+        $previousTide = null;
 
         foreach ($ports as $tide) {
             $tideTime = Carbon::createFromFormat('d-m-Y H\hi', $tide['day'] . ' ' . $tide['hour']);
@@ -78,35 +77,27 @@ class HomeController extends Controller
                 return $tide; // Tide has reached its final state
             }
 
-            if ($timeDiff > $timeThresholdHigh && (!$closestHighTide || $timeDiff < $closestHighTide['timeDiff'])) {
-                $closestHighTide = [
-                    'timeDiff' => $timeDiff,
-                    'tide' => [
+            if ($timeDiff > $timeThresholdHigh) {
+                if ($previousTide && $previousTide['desc_en'] === 'Low tide') {
+                    return [
                         'desc_en' => 'Rising Tide',
                         'height' => $tide['height'],
                         'hour' => $tide['hour']
-                    ]
-                ];
-            }
-
-            if ($timeDiff < $timeThresholdLow && (!$closestLowTide || abs($timeDiff) < abs($closestLowTide['timeDiff']))) {
-                $closestLowTide = [
-                    'timeDiff' => $timeDiff,
-                    'tide' => [
+                    ];
+                } else {
+                    return [
                         'desc_en' => 'Falling Tide',
                         'height' => $tide['height'],
                         'hour' => $tide['hour']
-                    ]
-                ];
+                    ];
+                }
             }
+
+            $previousTide = $tide;
         }
 
-        return $closestHighTide ? $closestHighTide['tide'] : ($closestLowTide ? $closestLowTide['tide'] : null);
+        return null;
     }
-
-
-
-
 
     /**
      * Set the user's location in session storage.
