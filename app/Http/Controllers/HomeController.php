@@ -45,14 +45,13 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        [$userLatitude, $userLongitude] = $this->userLocationService->fetchUserCoordinates($request);
-
         $requestedPort = $request->query('port');
         $allPorts = $this->portService->retrieveAllPorts();
 
         if ($requestedPort) {
             $selectedPort = $this->portService->getPortDataForSpecificPort($allPorts, $requestedPort);
         } else {
+            [$userLatitude, $userLongitude] = $this->userLocationService->fetchUserCoordinates($request);
             $closestPort = $this->portService->findClosestPort($allPorts, $userLatitude, $userLongitude);
             $selectedPort = $this->portService->getPortDataForSpecificPort($allPorts, $closestPort['port']);
         }
