@@ -23,11 +23,13 @@
 
 <body class="antialiased bg-white dark:bg-gray-900">
     <!-- Dark mode toggle -->
-    <input type="checkbox" id="darkModeToggle" class="hidden" aria-checked="false" role="switch">
-    <label for="darkModeToggle"
-        class="fixed top-4 right-4 bg-gray-300 dark:bg-gray-700 w-12 h-6 rounded-full flex items-center p-1 cursor-pointer">
-        <div class="w-5 h-5 bg-gray-600 dark:bg-blue-300 rounded-full" id="darkModeIndicator"></div>
-    </label>
+    <div class="flex justify-end container mx-auto p-6">
+        <input type="checkbox" id="darkModeToggle" class="hidden" aria-checked="false" role="switch">
+        <label for="darkModeToggle"
+            class="bg-gray-300 dark:bg-gray-700 w-12 h-6 rounded-full flex items-center p-1 cursor-pointer">
+            <div class="w-5 h-5 bg-gray-600 dark:bg-blue-300 rounded-full" id="darkModeIndicator"></div>
+        </label>
+    </div>
 
     <!-- Page content -->
     @yield('content')

@@ -58,6 +58,7 @@ class HomeController extends Controller
      * Estimate the current tide based on the closest time to the current time.
      *
      * @param array $ports
+     *
      * @return array|null
      */
     private function estimateCurrentTide($ports)
