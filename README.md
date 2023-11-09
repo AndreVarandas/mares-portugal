@@ -4,6 +4,8 @@
 
 Just a simple website to show the tides of Portugal.
 
+Check the website live: [mares.andrevarandas.dev](https://mares.andrevarandas.dev), analytics available at [analytics.andrevarandas.dev](https://analytics.andrevarandas.dev).
+
 ## Getting Started
 
 ### Prerequisites

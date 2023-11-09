@@ -62,22 +62,50 @@ class HomeController extends Controller
      */
     private function estimateCurrentTide($ports)
     {
+        $timeThresholdHigh = 20; // minutes before/after high tide
+        $timeThresholdLow = -20; // minutes before/after low tide
+
         $currentTime = Carbon::now();
-        $currentTide = null;
-        $closestTimeDiff = PHP_INT_MAX;
+        $closestHighTide = null;
+        $closestLowTide = null;
 
         foreach ($ports as $tide) {
             $tideTime = Carbon::createFromFormat('d-m-Y H\hi', $tide['day'] . ' ' . $tide['hour']);
             $timeDiff = $tideTime->diffInMinutes($currentTime, false);
 
-            if ($timeDiff >= 0 && $timeDiff < $closestTimeDiff) {
-                $closestTimeDiff = $timeDiff;
-                $currentTide = $tide;
+            if ($timeDiff >= $timeThresholdLow && $timeDiff <= $timeThresholdHigh) {
+                return $tide; // Tide has reached its final state
+            }
+
+            if ($timeDiff > $timeThresholdHigh && (!$closestHighTide || $timeDiff < $closestHighTide['timeDiff'])) {
+                $closestHighTide = [
+                    'timeDiff' => $timeDiff,
+                    'tide' => [
+                        'desc_en' => 'Rising Tide',
+                        'height' => $tide['height'],
+                        'hour' => $tide['hour']
+                    ]
+                ];
+            }
+
+            if ($timeDiff < $timeThresholdLow && (!$closestLowTide || abs($timeDiff) < abs($closestLowTide['timeDiff']))) {
+                $closestLowTide = [
+                    'timeDiff' => $timeDiff,
+                    'tide' => [
+                        'desc_en' => 'Falling Tide',
+                        'height' => $tide['height'],
+                        'hour' => $tide['hour']
+                    ]
+                ];
             }
         }
 
-        return $currentTide;
+        return $closestHighTide ? $closestHighTide['tide'] : ($closestLowTide ? $closestLowTide['tide'] : null);
     }
+
+
+
+
 
     /**
      * Set the user's location in session storage.

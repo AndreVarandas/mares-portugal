@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <main class="container mx-auto py-8 space-y-6 flex flex-col justify-center h-full ">
+    <main class="container mx-auto py-8  flex flex-col justify-center h-full ">
         <div class="text-center mb-8">
             <h1 class="text-4xl font-bold text-gray-800 dark:text-white">🌊 Tides @ Portugal</h1>
             <select class="mt-6 border border-gray-300 rounded-md shadow-sm p-2 dark:bg-gray-700 dark:text-white"
@@ -15,16 +15,18 @@
         </div>
 
         @if ($currentTide)
-            <div class="text-center bg-blue-300 md:rounded-lg p-6 shadow-md">
-                <img src={{ asset('icons/tide.svg') }} alt="tide" class="w-24 h-24 mx-auto" />
-                <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">
+            <div
+                class="text-center bg-blue-300 md:rounded-lg md:rounded-b-none p-2 md:p-6 flex items-center justify-around md:flex-col">
+                <img src={{ asset('icons/tide.svg') }} alt="tide" class="w-12 h-12 md:w-24 md:h-24" />
+                <h2 class="text-2xl sm:text-3xl font-bold
+                    text-gray-800 md:mb-4">
                     {{ $currentTide['desc_en'] }}</h2>
                 <p class="text-lg font-semibold text-gray-600">{{ $currentTide['hour'] }}</p>
-                <p class="text-base text-gray-700">{{ $currentTide['height'] }} Meters</p>
+                <p class="text-base text-gray-700">{{ $currentTide['height'] }} M</p>
             </div>
         @endif
 
-        <div class="overflow-x-auto md:rounded-lg border dark:bg-gray-800 dark:border-gray-500">
+        <div class="overflow-x-auto md:rounded-lg md:rounded-t-none border dark:bg-gray-800 dark:border-gray-500">
             <table class="min-w-full divide-y divide-gray-200 dark:text-white dark:divide-gray-500">
                 <thead class="bg-gray-50 dark:bg-gray-700">
                     <tr>
