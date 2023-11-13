@@ -16,4 +16,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [TidesController::class, 'index'])->name('tides');
-Route::view('/moons', [MoonsController::class, 'index'])->name('moons');
+Route::get('/moons', [MoonsController::class, 'index'])->name('moons');
