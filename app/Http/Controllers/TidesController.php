@@ -7,7 +7,7 @@ use App\Services\TideService;
 use App\Services\UserLocationService;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class TidesController extends Controller
 {
     /**
      * @var PortService
@@ -25,7 +25,7 @@ class HomeController extends Controller
     protected $userLocationService;
 
     /**
-     * HomeController constructor.
+     * TidesController constructor.
      *
      * @param PortService $portService
      */
@@ -59,6 +59,6 @@ class HomeController extends Controller
         $portNames = $this->portService->retrieveAllPortNames($allPorts);
         $currentTide = $this->tideService->estimateCurrentTide($selectedPort);
 
-        return view('home', compact('selectedPort', 'portNames', 'currentTide'));
+        return view('tides.index', compact('selectedPort', 'portNames', 'currentTide'));
     }
 }

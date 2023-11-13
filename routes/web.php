@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TidesController;
+use App\Http\Controllers\MoonsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [TidesController::class, 'index'])->name('tides');
+Route::view('/moons', [MoonsController::class, 'index'])->name('moons');
