@@ -10,7 +10,7 @@
             <li>
                 <a href="{{ route('tides') }}"
                     class="hover:text-gray-900 hover:underline dark:hover:text-white ml-2 md:ml-8 px-2 py-2 block
-                    {{ request()->routeIs('home') ? 'font-bold' : '' }}">
+                    {{ request()->routeIs('tides') ? 'font-bold' : '' }}">
                     Tides
                 </a>
             </li>
