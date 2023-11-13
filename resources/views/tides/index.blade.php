@@ -13,7 +13,6 @@
                 @endforeach
             </select>
         </div>
-
         @if ($currentTide)
             <div class="bg-blue-300 md:rounded-lg md:rounded-b-none p-4 md:p-6 flex space-x-4 items-center md:flex-col">
                 <img src={{ asset('icons/tide.svg') }} alt="tide" class="w-12 h-12 md:w-24 md:h-24" />
@@ -22,7 +21,6 @@
                     {{ $currentTide['desc_en'] }}</h2>
             </div>
         @endif
-
         <div class="overflow-x-auto md:rounded-lg md:rounded-t-none border dark:bg-gray-800 dark:border-gray-500">
             <table class="min-w-full divide-y divide-gray-200 dark:text-white dark:divide-gray-500">
                 <thead class="bg-gray-50 dark:bg-gray-700">
@@ -53,5 +51,17 @@
         </div>
     </main>
 
-    @vite('resources/js/home.js')
+    <script>
+        // Function to handle dropdown change and redirect
+        const handlePortChange = (event) => {
+            const selectedPort = event.target.value;
+            window.location.href = `?port=${selectedPort}`;
+        };
+
+        // Event listener for dropdown change
+        const portDropdown = document.getElementById("portDropdown");
+        if (portDropdown) {
+            portDropdown.addEventListener("change", handlePortChange);
+        }
+    </script>
 @endsection
