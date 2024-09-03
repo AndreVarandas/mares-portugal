@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="pt">
 
 <head>
     <!-- Meta tags -->
@@ -7,22 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>🌊 Mares de Portugal - Current Sea Levels, Tides, and Lunar Data</title>
+    <title>🌊 Mares de Portugal - Níveis do Mar, Marés e Dados Lunares</title>
 
-    <meta name="description" content="Check current sea levels, tide schedules, and lunar data for all Portuguese ports. Stay informed with accurate and up-to-date information on Portugal's coastal conditions.">
+    <meta name="description" content="Verifique os níveis atuais do mar, horários das marés e dados lunares para todos os portos de Portugal. Mantenha-se informado com informações precisas e atualizadas sobre as condições costeiras em Portugal.">
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Mares de Portugal - Sea Levels, Tides, and Lunar Information">
-    <meta property="og:description" content="Discover current sea levels, tide schedules, and lunar data for all Portuguese ports. Stay informed about coastal conditions in Portugal.">
-    <meta property="og:image" content="{{ url('/path-to-your-image.jpg') }}">
+    <meta property="og:title" content="Mares de Portugal - Níveis do Mar, Marés e Dados Lunares">
+    <meta property="og:description" content="Verifique os níveis atuais do mar, horários das marés e dados lunares para todos os portos de Portugal. Mantenha-se informado com informações precisas e atualizadas sobre as condições costeiras em Portugal.">
+    <meta property="og:image" content="{{ url('/images/sea-logo.webp') }}">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="website">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Mares de Portugal - Sea Levels, Tides, and Lunar Information">
-    <meta name="twitter:description" content="Check the latest sea levels, tides, and lunar data for Portuguese ports. Stay informed with our detailed coastal information.">
-    <meta name="twitter:image" content="{{ url('/path-to-your-image.jpg') }}">
+    <meta name="twitter:title" content="Mares de Portugal - Níveis do Mar, Marés e Dados Lunares">
+    <meta name="twitter:description" content="Verifique os níveis atuais do mar, horários das marés e dados lunares para todos os portos de Portugal. Mantenha-se informado com informações precisas e atualizadas sobre as condições costeiras em Portugal.">
+    <meta name="twitter:image" content="{{ url('/images/sea-logo.webp') }}">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="{{ url()->current() }}" />
