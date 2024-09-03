@@ -11,14 +11,14 @@
                 <a href="{{ route('tides') }}"
                     class="hover:text-gray-900 hover:underline dark:hover:text-white ml-2 md:ml-8 px-2 py-2 block
                     {{ request()->routeIs('tides') ? 'font-bold' : '' }}">
-                    Tides
+                    Marés
                 </a>
             </li>
             <li>
                 <a href="{{ route('moons') }}"
                     class="hover:text-gray-900 hover:underline dark:hover:text-white px-2 py-2 block
                     {{ request()->routeIs('moons') ? 'font-bold' : '' }}">
-                    Moons
+                    Luas
                 </a>
             </li>
         </ul>

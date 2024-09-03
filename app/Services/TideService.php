@@ -33,12 +33,14 @@ class TideService
                 if ($previousTide && $previousTide['desc_en'] === 'Low tide') {
                     return [
                         'desc_en' => 'Rising Tide',
+                        'desc_pt' => 'Maré a subir',
                         'height' => $tide['height'],
                         'hour' => $tide['hour']
                     ];
                 } else {
                     return [
                         'desc_en' => 'Falling Tide',
+                        'desc_pt' => 'Maré a descer',
                         'height' => $tide['height'],
                         'hour' => $tide['hour']
                     ];
