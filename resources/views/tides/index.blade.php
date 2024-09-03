@@ -3,7 +3,7 @@
 @section('content')
 <main class="container mx-auto py-8 flex flex-col justify-center h-full ">
     <div class="text-center mb-8">
-        <h1 class="text-4xl font-bold text-gray-800 dark:text-white">🌊 Tides @ Portugal</h1>
+        <h1 class="text-4xl font-bold text-gray-800 dark:text-white">🌊 Mares de Portugal</h1>
         <select class="mt-6 border border-gray-300 rounded-md shadow-sm p-2 dark:bg-gray-700 dark:text-white"
             id="portDropdown">
             @foreach ($portNames as $port)
@@ -14,7 +14,7 @@
         </select>
     </div>
     @if ($currentTide)
-    <div class="bg-blue-300 md:rounded-lg md:rounded-b-none p-4 md:p-6 flex space-x-4 items-center md:flex-col">
+    <div class="bg-blue-300 md:rounded-lg md:rounded-b-none p-4 md:p-6 flex space-x-4 items-center justify-center md:flex-col">
         <img src={{ asset('icons/tide.svg') }} alt="tide" class="w-12 h-12 md:w-24 md:h-24" />
         <h2 class="text-2xl sm:text-3xl font-bold
                     text-gray-800 md:mb-4">
