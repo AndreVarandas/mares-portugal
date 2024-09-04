@@ -1,10 +1,8 @@
 # Mares de Portugal
 
-[![Laravel Forge Site Deployment Status](https://img.shields.io/endpoint?url=https%3A%2F%2Fforge.laravel.com%2Fsite-badges%2F309df289-c70c-44a5-9b59-00b43b2a601a%3Fdate%3D1%26commit%3D1&style=plastic)](https://forge.laravel.com/servers/449430/sites/2156237)
-
 Just a simple website to show the tides of Portugal.
 
-Check the website live: [https://mares.andrevarandas.dev](https://mares.andrevarandas.dev), analytics available at [https://analytics.varandas.io/mares.andrevarandas.dev](https://analytics.varandas.io/mares.andrevarandas.dev).
+Check the website live: [https://mares.varandas.io](https://mares.varandas.io), analytics available at [https://analytics.varandas.io/mares.varandas.io](https://analytics.varandas.io/mares.varandas.io).
 
 ## Getting Started
 

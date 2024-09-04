@@ -33,6 +33,9 @@
 
     <!-- Styles -->
     @vite('resources/css/app.css')
+
+    <!-- Analytics -->
+    <script defer data-domain="mares.varandas.io" src="https://analytics.varandas.io/js/script.js"></script>
 </head>
 
 <body class="antialiased bg-white dark:bg-gray-900">
