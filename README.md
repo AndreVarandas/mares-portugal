@@ -1,8 +1,10 @@
 # Mares de Portugal
 
-<img src="/public/images/sea-logo.webp" alt="Mares de Portugal logo" width="200" style="text-align:center;">
+<img src="/public/images/sea-logo.webp" alt="Mares de Portugal logo" width="400">
 
-A simple website that shows the tides of the Portuguese coast. The website is built with Laravel and Tailwind CSS.
+A simple website that shows the tides of the Portuguese coast. 
+
+The website is built with Laravel and Tailwind CSS.
 
 **Why?**
 
@@ -11,7 +13,7 @@ A simple website that shows the tides of the Portuguese coast. The website is bu
 -   There was no clean way to check the moon phase as well.
 -   To learn and practice Laravel and Tailwind CSS.
 
-Check the website live: [https://mares.varandas.io](https://mares.varandas.io), analytics available at [https://analytics.varandas.io/mares.varandas.io](https://analytics.varandas.io/mares.varandas.io).
+Check the website live: [https://mares.varandas.io](https://mares.varandas.io), analytics are available at [https://analytics.varandas.io/mares.varandas.io](https://analytics.varandas.io/mares.varandas.io).
 
 ## Getting Started
 
