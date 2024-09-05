@@ -87,7 +87,10 @@ class PortService
      */
     public function retrieveAllPortNames($ports)
     {
-        return array_unique(array_column($ports, 'port'));
+        $uniquePortNames = array_unique(array_column($ports, 'port'));
+        sort($uniquePortNames);
+
+        return $uniquePortNames;
     }
 
     /**
@@ -100,7 +103,7 @@ class PortService
      */
     public function getPortDataForSpecificPort($ports, $portName)
     {
-        return array_values(array_filter($ports, fn ($port) => $port['port'] === $portName));
+        return array_values(array_filter($ports, fn($port) => $port['port'] === $portName));
     }
 
     /**
