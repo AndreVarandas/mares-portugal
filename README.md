@@ -2,16 +2,16 @@
 
 <img src="/public/images/sea-logo.webp" alt="Mares de Portugal logo" width="400">
 
-A simple website that shows the tides of the Portuguese coast. 
+A simple website that shows the tides of the Portuguese coast.
 
 The website is built with Laravel and Tailwind CSS.
 
 **Why?**
 
--   The existing websites are not user-friendly and are confusing to navigate.
--   Sometimes you just want to know the tides of a specific location and if it's tide is rising or falling.
--   There was no clean way to check the moon phase as well.
--   To learn and practice Laravel and Tailwind CSS.
+- The existing websites are not user-friendly and are confusing to navigate.
+- Sometimes you just want to know the tides of a specific location and if it's tide is rising or falling.
+- There was no clean way to check the moon phase as well.
+- To learn and practice Laravel and Tailwind CSS.
 
 Check the website live: [https://mares.varandas.io](https://mares.varandas.io), analytics are available at [https://analytics.varandas.io/mares.varandas.io](https://analytics.varandas.io/mares.varandas.io).
 
@@ -21,10 +21,10 @@ If you want to run the project locally, or contribute, please follow the instruc
 
 ### Prerequisites
 
--   Node.js
--   Composer
--   PHP 8.2
--   Any database (MySQL, PostgreSQL, SQLite, etc.)
+- Node.js
+- Composer
+- PHP 8.2
+- Any database (MySQL, PostgreSQL, SQLite, etc.)
 
 ### Installing
 
@@ -81,10 +81,10 @@ php artisan serve
 
 ## Built With
 
--   [Laravel](https://laravel.com/) - The PHP framework used
--   [Tailwind CSS](https://tailwindcss.com/) - The CSS framework used
+- [Laravel](https://laravel.com/) - The PHP framework used
+- [Tailwind CSS](https://tailwindcss.com/) - The CSS framework used
 
 ## Authors
 
--   **André Varandas** - _Initial work_ - [GitHub](https://github.com/AndreVarandas)
--   **André Bravo Ferreira** - _Initial work_ - [GitHub](https://github.com/AndreBravoFerreira)
+- **André Varandas** - _Initial work_ - [GitHub](https://github.com/AndreVarandas)
+- **André Bravo Ferreira** - _Initial work_ - [GitHub](https://github.com/AndreBravoFerreira)
